@@ -16,9 +16,9 @@ from pyld import jsonld
 
 # Example Ontology in JSON-LD https://gist.github.com/stain/7690362
 
-# sudo yum -y install git python3 pymongo dnspython
+# sudo yum -y install git python3
 # PyOSM: https://pypi.org/project/esy-osm-pbf/
-# pip3 install esy-osm-pbf
+# pip3 install pymongo dnspython requests esy-osm-pbf pyld
 
 # curl -OL https://download.geofabrik.de/europe/germany/bayern-latest.osm.pbf
 # curl -OL https://download.geofabrik.de/europe/germany/germany-latest.osm.pbf

@@ -31,22 +31,13 @@ OPENSTREETMAP_NAMESPACE = 'osmpower'
 OPENSTREETMAP = 'openstreetmap'
 KEY_TO_ANALYZE = 'power'
 
-mongo_client = pymongo.MongoClient('localhost')
+mongo_client = pymongo.MongoClient('mongodb+srv://USER:PASSWORD@knowledgegraphfreetier.XXXXX.mongodb.net/osm?retryWrites=true&w=majority')
 
 raw_class_tags_coll = mongo_client.osm.raw_class_tags
-#raw_releated_tags_coll = mongo_client.osm.raw_releated_tags
-
-raw_objects_coll = mongo_client.osm.raw_objects
-raw_objects_coll.create_index([( "tags.$**", pymongo.ASCENDING)])
-
-osm = esy.osm.pbf.File('/Users/christian.kurze/Downloads/bayern-latest.osm.pbf')
+raw_releated_tags_coll = mongo_client.osm.raw_releated_tags
 
 def main():
-	# Alternative: get all tags from MongoDB:
-	#tags = [row['key'] for row in raw_class_tags_coll.find({},{'_id': 0, 'key': 1})]
-
-	tags = [taginfo for taginfo in raw_class_tags_coll.aggregate([{'$unwind': {'path': '$data'}}])]
-	
+	tags = [taginfo for taginfo in raw_class_tags_coll.aggregate([{'$unwind': {'path': '$data'}}])]	
 	create_ttl_file(tags)
 
 def create_ttl_file(tags):

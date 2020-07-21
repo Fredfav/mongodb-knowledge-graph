@@ -27,6 +27,9 @@ import subprocess
 # curl -OL https://download.geofabrik.de/europe/germany/bayern-latest.osm.pbf
 # curl -OL https://download.geofabrik.de/europe/germany/germany-latest.osm.pbf
 
+# pbf2json: https://github.com/pelias/pbf2json
+# /home/ec2-user/pbf2json/build/pbf2json.linux-x64
+
 OPENSTREETMAP_NAMESPACE = 'osmpower'
 OPENSTREETMAP = 'openstreetmap'
 KEY_TO_ANALYZE = 'power'
