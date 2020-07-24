@@ -1,0 +1,752 @@
+{
+  "@context" : {
+    "AntennaLine" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#AntennaLine"
+    },
+    "Switch" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Switch"
+    },
+    "Substation" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Substation"
+    },
+    "Post" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Post"
+    },
+    "Mechanical" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Mechanical"
+    },
+    "addr_state" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#addr_state",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "generator_output_electricity" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#generator_output_electricity",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "survey_date" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#survey_date",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "CableDistributionCabinet" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#CableDistributionCabinet"
+    },
+    "colour" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#colour",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "building_levels" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#building_levels",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Furniture" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Furniture"
+    },
+    "building_colour" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#building_colour",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Line" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Line"
+    },
+    "MobileEquipment" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#MobileEquipment"
+    },
+    "source_user" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#source_user",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Terminal" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Terminal"
+    },
+    "Shipyard" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Shipyard"
+    },
+    "tiger_county" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#tiger_county",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "HeatingStation" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#HeatingStation"
+    },
+    "AutoWrecker" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#AutoWrecker"
+    },
+    "odbl" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#odbl",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Oil" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Oil"
+    },
+    "rotor_diameter" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#rotor_diameter",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "operator_wikidata" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#operator_wikidata",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "generator_method" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#generator_method",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "model" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#model",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Auxiliary" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Auxiliary"
+    },
+    "Distribution" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Distribution"
+    },
+    "contact_website" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#contact_website",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Brewery" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Brewery"
+    },
+    "Thing" : {
+      "@id" : "http://www.w3.org/2002/07/owl#Thing"
+    },
+    "public_transport" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#public_transport",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Slaughterhouse" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Slaughterhouse"
+    },
+    "circuits" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#circuits",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "addr_city" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#addr_city",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "height" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#height",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Transition" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Transition"
+    },
+    "name_en" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#name_en",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Ground" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Ground"
+    },
+    "area" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#area",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "ref_FR_RTE" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#ref_FR_RTE",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "wikipedia" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#wikipedia",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "name_ja" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#name_ja",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "manufacturer_type" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#manufacturer_type",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "triple_tower" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#triple_tower",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Generator" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Generator"
+    },
+    "natural" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#natural",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "image" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#image",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "operator" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#operator",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "tiger_cfcc" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#tiger_cfcc",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Mine" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Mine"
+    },
+    "Funicular" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Funicular"
+    },
+    "ref_bag" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#ref_bag",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Pedestal" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Pedestal"
+    },
+    "voltage_secondary" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#voltage_secondary",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Pole" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Pole"
+    },
+    "branch" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#branch",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "design" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#design",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "structure" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#structure",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "access" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#access",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Marker" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Marker"
+    },
+    "manufacturer" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#manufacturer",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "ele" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#ele",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Plant" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Plant"
+    },
+    "Heliostat" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Heliostat"
+    },
+    "Measurement" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Measurement"
+    },
+    "website" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#website",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "wikidata" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#wikidata",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "voltage_primary" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#voltage_primary",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Cable" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Cable"
+    },
+    "SubStation" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#SubStation"
+    },
+    "Disconnector" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Disconnector"
+    },
+    "design_incomplete" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#design_incomplete",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "created_by" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#created_by",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "addr_full" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#addr_full",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "CatenaryMast" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#CatenaryMast"
+    },
+    "Converter" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Converter"
+    },
+    "note" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#note",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "landuse" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#landuse",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "source_position" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#source_position",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "OilMill" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#OilMill"
+    },
+    "generator_place" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#generator_place",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Warehouse" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Warehouse"
+    },
+    "Switchgear" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Switchgear"
+    },
+    "Generation" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Generation"
+    },
+    "Compensator" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Compensator"
+    },
+    "Wellsite" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Wellsite"
+    },
+    "Busbar" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Busbar"
+    },
+    "name" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#name",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Tower" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Tower"
+    },
+    "PhaseAngleRegulator" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#PhaseAngleRegulator"
+    },
+    "addr_street" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#addr_street",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Transformer" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Transformer"
+    },
+    "tiger_upload_uuid" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#tiger_upload_uuid",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Sawmill" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Sawmill"
+    },
+    "network" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#network",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "voltage" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#voltage",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Depot" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Depot"
+    },
+    "support" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#support",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "location" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#location",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Bay" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Bay"
+    },
+    "highway" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#highway",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "source_ref" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#source_ref",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Bakery" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Bakery"
+    },
+    "cables" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#cables",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "name_zh" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#name_zh",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "direction" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#direction",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "partOf" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#partOf",
+      "@type" : "@id"
+    },
+    "LightRail" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#LightRail"
+    },
+    "operator_en" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#operator_en",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "it_fvg_ctrn_revision" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#it_fvg_ctrn_revision",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "fence_type" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#fence_type",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "man_made" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#man_made",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Stone" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Stone"
+    },
+    "Auto" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Auto"
+    },
+    "source_date" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#source_date",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Port" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Port"
+    },
+    "tiger_reviewed" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#tiger_reviewed",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "barrier" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#barrier",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Traction" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Traction"
+    },
+    "Transmission" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Transmission"
+    },
+    "fixme" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#fixme",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "street_cabinet" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#street_cabinet",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "site" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#site",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "MinorLine" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#MinorLine"
+    },
+    "addr_postcode" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#addr_postcode",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Fjord" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Fjord"
+    },
+    "substance" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#substance",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "addr_province" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#addr_province",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "length" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#length",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "WellCluster" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#WellCluster"
+    },
+    "pipeline" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#pipeline",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "name_ru" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#name_ru",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Steelmaking" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Steelmaking"
+    },
+    "Subway" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Subway"
+    },
+    "addr_suburb" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#addr_suburb",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Insulator" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Insulator"
+    },
+    "levels" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#levels",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Brickyard" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Brickyard"
+    },
+    "roof_material" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#roof_material",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "source" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#source",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "plant_output_electricity" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#plant_output_electricity",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "type" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#type",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Compensation" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Compensation"
+    },
+    "it_fvg_ctrn_code" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#it_fvg_ctrn_code",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Portal" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Portal"
+    },
+    "utility" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#utility",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "railway_position_exact" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#railway_position_exact",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "FoodIndustry" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#FoodIndustry"
+    },
+    "Connection" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Connection"
+    },
+    "ref" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#ref",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "source_geometry" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#source_geometry",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "lamp_type" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#lamp_type",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "wheelchair" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#wheelchair",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "AluminiumSmelting" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#AluminiumSmelting"
+    },
+    "building" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#building",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "tiger_source" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#tiger_source",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "start_date" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#start_date",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Distributor" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Distributor"
+    },
+    "name_ko" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#name_ko",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "addr_country" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#addr_country",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "MinorDistribution" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#MinorDistribution"
+    },
+    "tiger_tlid" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#tiger_tlid",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Industrial" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Industrial"
+    },
+    "check_date" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#check_date",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "todo" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#todo",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "building_ruian_type" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#building_ruian_type",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "int_name" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#int_name",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Station" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Station"
+    },
+    "disused" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#disused",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "addr_housenumber" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#addr_housenumber",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "layer" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#layer",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "wires" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#wires",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "ScrapYard" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#ScrapYard"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "IceFactory" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#IceFactory"
+    },
+    "source_geometry_date" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#source_geometry_date",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "generator_type" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#generator_type",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "rating" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#rating",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Aerial" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Aerial"
+    },
+    "tower_type" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#tower_type",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "railway" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#railway",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Factory" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Factory"
+    },
+    "MachineShop" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#MachineShop"
+    },
+    "plant_source" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#plant_source",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "mapillary" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#mapillary",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "line_attachment" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#line_attachment",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "SaltPond" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#SaltPond"
+    },
+    "roof_shape" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#roof_shape",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "seamark_type" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#seamark_type",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Plate" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Plate"
+    },
+    "operational_status" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#operational_status",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "RiceMill" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#RiceMill"
+    },
+    "lit" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#lit",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "description" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#description",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "location_transition" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#location_transition",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Earthing" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#Earthing"
+    },
+    "CircuitBreaker" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#CircuitBreaker"
+    },
+    "GrindingMill" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#GrindingMill"
+    },
+    "generator_source" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#generator_source",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "roof_colour" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#roof_colour",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "building_material" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#building_material",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "ref_ruian_building" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#ref_ruian_building",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "phases" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#phases",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "material" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#material",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "PowerThing" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#PowerThing"
+    },
+    "frequency" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#frequency",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    }
+  }
+}

@@ -1,0 +1,2222 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix owl2: <http://www.w3.org/2006/12/owl2#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix osmpower: <http://christian-kurze.de/ontology/osm/power#> .
+
+###########################################
+# Classes
+###########################################
+
+osmpower:PowerThing rdf:type owl:Class .
+osmpower:PowerThing rdfs:subClassOf owl:Thing .
+osmpower:PowerThing rdfs:comment "Parent class of all power-related things." .
+osmpower:AntennaLine rdf:type owl:Class .
+osmpower:AntennaLine rdfs:subClassOf osmpower:PowerThing .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:AntennaLine ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Busbar rdf:type owl:Class .
+osmpower:Busbar rdfs:subClassOf osmpower:PowerThing .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Busbar ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Cable rdf:type owl:Class .
+osmpower:Cable rdfs:subClassOf osmpower:PowerThing .
+osmpower:Cable rdfs:comment "An insulated cable carrying electrical power, such as transmission or distribution cables located underground and undersea cables" .
+osmpower:cables a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "Number of electrically separated power-carrying conductors in a power line" ;
+    rdfs:range xsd:string .
+osmpower:circuits a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "Number of electrical circuits in a power line or cable connection" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:layer a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "Used to mark the vertical relationship between two intersecting features." ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:note a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "A note to yourself or to other mappers." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:ref_FR_RTE a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "French codification of power transmission networks" ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:wires a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Cable ;
+    rdfs:comment "Number of wires per power cable. single (1), double (2), triple (3) or quad (4)." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Cable ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:CableDistributionCabinet rdf:type owl:Class .
+osmpower:CableDistributionCabinet rdfs:subClassOf osmpower:PowerThing .
+osmpower:check_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CableDistributionCabinet ;
+    rdfs:comment "Date of latest review of the data" ;
+    rdfs:range xsd:string .
+osmpower:man_made a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CableDistributionCabinet ;
+    rdfs:comment "The man-made tag is for identifying man made structures." ;
+    rdfs:range xsd:string .
+osmpower:manufacturer a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CableDistributionCabinet ;
+    rdfs:comment "Manufacturer of an object" ;
+    rdfs:range xsd:string .
+osmpower:model a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CableDistributionCabinet ;
+    rdfs:comment "Model designation of a manufactured object" ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CableDistributionCabinet ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CableDistributionCabinet ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:street_cabinet a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CableDistributionCabinet ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:CableDistributionCabinet ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:CatenaryMast rdf:type owl:Class .
+osmpower:CatenaryMast rdfs:subClassOf osmpower:PowerThing .
+osmpower:CatenaryMast rdfs:comment "A pole supporting the overhead wires used to supply electricity to vehicles equipped with a pantograph such as trams and trains" .
+osmpower:material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CatenaryMast ;
+    rdfs:comment "Describes the main material of a physical feature." ;
+    rdfs:range xsd:string .
+osmpower:note a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CatenaryMast ;
+    rdfs:comment "A note to yourself or to other mappers." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CatenaryMast ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:railway_position_exact a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CatenaryMast ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CatenaryMast ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CatenaryMast ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:source_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CatenaryMast ;
+    rdfs:comment "For indicating the date when the source of information of anything added to the OSM database was taken." ;
+    rdfs:range xsd:string .
+osmpower:start_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CatenaryMast ;
+    rdfs:comment "Date when feature opened or the construction of the feature finished." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:CatenaryMast ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Compensator rdf:type owl:Class .
+osmpower:Compensator rdfs:subClassOf osmpower:PowerThing .
+osmpower:Compensator rdfs:comment "A static power device used to ensure power quality and electrical network resilience." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Compensator ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Connection rdf:type owl:Class .
+osmpower:Connection rdfs:subClassOf osmpower:PowerThing .
+osmpower:Connection rdfs:comment "A freestanding electrical connection between two or more overhead wires" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Connection ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Converter rdf:type owl:Class .
+osmpower:Converter rdfs:subClassOf osmpower:PowerThing .
+osmpower:Converter rdfs:comment "A device to convert power between alternating and direct current electrical power: often, but not only, over high voltage networks" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Converter ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Generator rdf:type owl:Class .
+osmpower:Generator rdfs:subClassOf osmpower:PowerThing .
+osmpower:Generator rdfs:comment "A device which converts one form of energy to another, for example, an electrical generator." .
+osmpower:addr_city a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:addr_country a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:addr_housenumber a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:addr_postcode a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:addr_province a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:addr_state a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:addr_street a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:addr_suburb a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "specification that is used to distinguish the street with the same names within the settlement" ;
+    rdfs:range xsd:string .
+osmpower:area a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Used to mark that a specific feature is a general area." ;
+    rdfs:range xsd:string .
+osmpower:barrier a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "A barrier is a physical structure which blocks or impedes movement." ;
+    rdfs:range xsd:string .
+osmpower:building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "To mark the outline of a building, a man-made structure with a roof, standing more or less permanently in one place." ;
+    rdfs:range xsd:string .
+osmpower:building_levels a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:building_material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Outer material for the building façade." ;
+    rdfs:range xsd:string .
+osmpower:colour a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "The colour associated with the object" ;
+    rdfs:range xsd:string .
+osmpower:description a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "To provide additional information about the related element to the end map user." ;
+    rdfs:range xsd:string .
+osmpower:direction a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Specifies the direction of a feature." ;
+    rdfs:range xsd:string .
+osmpower:ele a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Elevation of a point above sea level, in metres." ;
+    rdfs:range xsd:string .
+osmpower:fixme a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Description of a (possible) error in the map" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:generator_method a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Method by which the energy is generated" ;
+    rdfs:range xsd:string .
+osmpower:generator_output_electricity a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:generator_place a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Location of a solar system" ;
+    rdfs:range xsd:string .
+osmpower:generator_source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Source of the energy generated by a tag:power=generator device" ;
+    rdfs:range xsd:string .
+osmpower:generator_type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Type of a tag:power=generator producing power" ;
+    rdfs:range xsd:string .
+osmpower:height a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Physical attribute of other keys. Height is the measurement of vertical distance. It indicates how tall something is." ;
+    rdfs:range xsd:string .
+osmpower:int_name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:landuse a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "For describing the primary use of areas of land." ;
+    rdfs:range xsd:string .
+osmpower:layer a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Used to mark the vertical relationship between two intersecting features." ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:manufacturer a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Manufacturer of an object" ;
+    rdfs:range xsd:string .
+osmpower:manufacturer_type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Name of a wind turbine's model, as determined by its manufacturer." ;
+    rdfs:range xsd:string .
+osmpower:model a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Model designation of a manufactured object" ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:note a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "A note to yourself or to other mappers." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:operator_wikidata a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:roof_colour a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Colour of the roof" ;
+    rdfs:range xsd:string .
+osmpower:roof_material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Outer material for the building roof." ;
+    rdfs:range xsd:string .
+osmpower:roof_shape a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Roof shape type." ;
+    rdfs:range xsd:string .
+osmpower:rotor_diameter a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Rotor diameter of a wind turbine" ;
+    rdfs:range xsd:string .
+osmpower:seamark_type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Defines the type of seamarks and other navigation aids for marine charts" ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:source_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "For indicating the date when the source of information of anything added to the OSM database was taken." ;
+    rdfs:range xsd:string .
+osmpower:start_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Date when feature opened or the construction of the feature finished." ;
+    rdfs:range xsd:string .
+osmpower:type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Type of a relation" ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:website a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Generator ;
+    rdfs:comment "Specifying the link to the official website for a feature." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Generator ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Heliostat rdf:type owl:Class .
+osmpower:Heliostat rdfs:subClassOf osmpower:PowerThing .
+osmpower:Heliostat rdfs:comment "A mirror of a heliostat device" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Heliostat ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Insulator rdf:type owl:Class .
+osmpower:Insulator rdfs:subClassOf osmpower:PowerThing .
+osmpower:Insulator rdfs:comment "An electrical insulator which connects a power line to a support structure and prevents grounding." .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Insulator ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Insulator ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Line rdf:type owl:Class .
+osmpower:Line rdfs:subClassOf osmpower:PowerThing .
+osmpower:Line rdfs:comment "High-voltage power lines used for power transmission, usually supported by towers or pylons" .
+osmpower:branch a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "Identifies which branch of a brand or chain this object represents, or controversially the name of a branch railway." ;
+    rdfs:range xsd:string .
+osmpower:cables a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "Number of electrically separated power-carrying conductors in a power line" ;
+    rdfs:range xsd:string .
+osmpower:circuits a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "Number of electrical circuits in a power line or cable connection" ;
+    rdfs:range xsd:string .
+osmpower:description a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "To provide additional information about the related element to the end map user." ;
+    rdfs:range xsd:string .
+osmpower:fixme a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "Description of a (possible) error in the map" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:layer a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "Used to mark the vertical relationship between two intersecting features." ;
+    rdfs:range xsd:string .
+osmpower:length a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "The length of a feature." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:name_en a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:range xsd:string .
+osmpower:note a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "A note to yourself or to other mappers." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:operator_en a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:ref_FR_RTE a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "French codification of power transmission networks" ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:tiger_cfcc a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:range xsd:string .
+osmpower:tiger_county a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:range xsd:string .
+osmpower:tiger_reviewed a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:range xsd:string .
+osmpower:tiger_source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:range xsd:string .
+osmpower:tiger_tlid a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:range xsd:string .
+osmpower:tiger_upload_uuid a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:wires a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Line ;
+    rdfs:comment "Number of wires per power cable. single (1), double (2), triple (3) or quad (4)." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Line ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Marker rdf:type owl:Class .
+osmpower:Marker rdfs:subClassOf osmpower:PowerThing .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Marker ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:MinorLine rdf:type owl:Class .
+osmpower:MinorLine rdfs:subClassOf osmpower:PowerThing .
+osmpower:MinorLine rdfs:comment "Minor power lines forming the distribution grid, usually carried by poles." .
+osmpower:branch a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "Identifies which branch of a brand or chain this object represents, or controversially the name of a branch railway." ;
+    rdfs:range xsd:string .
+osmpower:cables a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "Number of electrically separated power-carrying conductors in a power line" ;
+    rdfs:range xsd:string .
+osmpower:circuits a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "Number of electrical circuits in a power line or cable connection" ;
+    rdfs:range xsd:string .
+osmpower:fixme a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "Description of a (possible) error in the map" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:layer a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "Used to mark the vertical relationship between two intersecting features." ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:note a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "A note to yourself or to other mappers." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:phases a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:wires a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:comment "Number of wires per power cable. single (1), double (2), triple (3) or quad (4)." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:MinorLine ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Plant rdf:type owl:Class .
+osmpower:Plant rdfs:subClassOf osmpower:PowerThing .
+osmpower:Plant rdfs:comment "An industrial facility where power (electricity, useful heat, biogas) is produced by individual power generator units." .
+osmpower:addr_city a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:range xsd:string .
+osmpower:addr_housenumber a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:range xsd:string .
+osmpower:addr_street a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:range xsd:string .
+osmpower:barrier a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "A barrier is a physical structure which blocks or impedes movement." ;
+    rdfs:range xsd:string .
+osmpower:building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "To mark the outline of a building, a man-made structure with a roof, standing more or less permanently in one place." ;
+    rdfs:range xsd:string .
+osmpower:generator_method a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "Method by which the energy is generated" ;
+    rdfs:range xsd:string .
+osmpower:generator_source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "Source of the energy generated by a tag:power=generator device" ;
+    rdfs:range xsd:string .
+osmpower:landuse a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "For describing the primary use of areas of land." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:name_en a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:plant_output_electricity a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:range xsd:string .
+osmpower:plant_source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "Source of the energy produced in a power plant" ;
+    rdfs:range xsd:string .
+osmpower:site a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:start_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "Date when feature opened or the construction of the feature finished." ;
+    rdfs:range xsd:string .
+osmpower:type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "Type of a relation" ;
+    rdfs:range xsd:string .
+osmpower:wikidata a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:range xsd:string .
+osmpower:wikipedia a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Plant ;
+    rdfs:comment "Provides a link to Wikipedia's article about the feature." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Plant ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Pole rdf:type owl:Class .
+osmpower:Pole rdfs:subClassOf osmpower:PowerThing .
+osmpower:Pole rdfs:comment "A single pole supporting power lines, often a wood, steel or concrete mast designed to carry minor power lines." .
+osmpower:branch a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Identifies which branch of a brand or chain this object represents, or controversially the name of a branch railway." ;
+    rdfs:range xsd:string .
+osmpower:cables a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Number of electrically separated power-carrying conductors in a power line" ;
+    rdfs:range xsd:string .
+osmpower:description a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "To provide additional information about the related element to the end map user." ;
+    rdfs:range xsd:string .
+osmpower:design a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Describes the design of poles or pylons carrying high voltage electricity cables" ;
+    rdfs:range xsd:string .
+osmpower:direction a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Specifies the direction of a feature." ;
+    rdfs:range xsd:string .
+osmpower:fixme a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Description of a (possible) error in the map" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:height a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Physical attribute of other keys. Height is the measurement of vertical distance. It indicates how tall something is." ;
+    rdfs:range xsd:string .
+osmpower:highway a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "The highway tag is the primary tag used for any kind of street or way." ;
+    rdfs:range xsd:string .
+osmpower:image a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Reference to an image of the object" ;
+    rdfs:range xsd:string .
+osmpower:lamp_type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Type of lamp." ;
+    rdfs:range xsd:string .
+osmpower:line_attachment a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Consistently defining how a power, telecom or even washing line is attached to its supports" ;
+    rdfs:range xsd:string .
+osmpower:lit a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Indicates whether a feature is lit." ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:location_transition a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:range xsd:string .
+osmpower:man_made a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "The man-made tag is for identifying man made structures." ;
+    rdfs:range xsd:string .
+osmpower:material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Describes the main material of a physical feature." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:natural a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Used to describes natural physical land features, including ones that have been modified by humans." ;
+    rdfs:range xsd:string .
+osmpower:note a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "A note to yourself or to other mappers." ;
+    rdfs:range xsd:string .
+osmpower:operational_status a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Observation of the current functional status of a mapped feature - now discouraged" ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:phases a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:range xsd:string .
+osmpower:rating a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:source_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "For indicating the date when the source of information of anything added to the OSM database was taken." ;
+    rdfs:range xsd:string .
+osmpower:source_geometry a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "For indicating the source of geometry of object added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:source_geometry_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:range xsd:string .
+osmpower:source_position a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:range xsd:string .
+osmpower:source_user a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:range xsd:string .
+osmpower:structure a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Describes the structure of pylons carrying high voltage electricity cables" ;
+    rdfs:range xsd:string .
+osmpower:support a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Type of support for certain features" ;
+    rdfs:range xsd:string .
+osmpower:tower_type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:voltage_primary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Primary voltage" ;
+    rdfs:range xsd:string .
+osmpower:voltage_secondary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Pole ;
+    rdfs:comment "Voltage of a transformer interface which delivers power to consumers" ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Pole ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Portal rdf:type owl:Class .
+osmpower:Portal rdfs:subClassOf osmpower:PowerThing .
+osmpower:Portal rdfs:comment "A supporting structure for power lines, composed of vertical legs with cables between them attached to a horizontal crossarm" .
+osmpower:design a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Portal ;
+    rdfs:comment "Describes the design of poles or pylons carrying high voltage electricity cables" ;
+    rdfs:range xsd:string .
+osmpower:material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Portal ;
+    rdfs:comment "Describes the main material of a physical feature." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Portal ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Portal ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Portal ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:structure a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Portal ;
+    rdfs:comment "Describes the structure of pylons carrying high voltage electricity cables" ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Portal ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Station rdf:type owl:Class .
+osmpower:Station rdfs:subClassOf osmpower:PowerThing .
+osmpower:Station rdfs:comment "Deprecated tag for substations or power plants" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Station ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:SubStation rdf:type owl:Class .
+osmpower:SubStation rdfs:subClassOf osmpower:PowerThing .
+osmpower:SubStation rdfs:comment "Deprecated tag for substation" .
+osmpower:building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:SubStation ;
+    rdfs:comment "To mark the outline of a building, a man-made structure with a roof, standing more or less permanently in one place." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:SubStation ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:SubStation ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:SubStation ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:SubStation ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:SubStation ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Substation rdf:type owl:Class .
+osmpower:Substation rdfs:subClassOf osmpower:PowerThing .
+osmpower:Substation rdfs:comment "A facility which controls the flow of electricity in a power network with transformers, switchgear or compensators." .
+osmpower:access a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "For describing the legal accessibility of an element." ;
+    rdfs:range xsd:string .
+osmpower:addr_city a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:addr_country a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:addr_full a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:addr_housenumber a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:addr_postcode a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:addr_street a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:area a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Used to mark that a specific feature is a general area." ;
+    rdfs:range xsd:string .
+osmpower:barrier a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "A barrier is a physical structure which blocks or impedes movement." ;
+    rdfs:range xsd:string .
+osmpower:branch a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Identifies which branch of a brand or chain this object represents, or controversially the name of a branch railway." ;
+    rdfs:range xsd:string .
+osmpower:building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "To mark the outline of a building, a man-made structure with a roof, standing more or less permanently in one place." ;
+    rdfs:range xsd:string .
+osmpower:building_colour a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Indicates colour of the building." ;
+    rdfs:range xsd:string .
+osmpower:building_levels a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:building_material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Outer material for the building façade." ;
+    rdfs:range xsd:string .
+osmpower:building_ruian_type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "RUIAN type of the building" ;
+    rdfs:range xsd:string .
+osmpower:check_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Date of latest review of the data" ;
+    rdfs:range xsd:string .
+osmpower:description a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "To provide additional information about the related element to the end map user." ;
+    rdfs:range xsd:string .
+osmpower:fence_type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Describes the properties of a fence." ;
+    rdfs:range xsd:string .
+osmpower:fixme a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Description of a (possible) error in the map" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:height a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Physical attribute of other keys. Height is the measurement of vertical distance. It indicates how tall something is." ;
+    rdfs:range xsd:string .
+osmpower:it_fvg_ctrn_code a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Defines codes used by Carta Tecnica Regionale Numerica (CTRN, Regional Numeric Technical Chart) by Regione Friuli Venezia Giulia (Italy)." ;
+    rdfs:range xsd:string .
+osmpower:it_fvg_ctrn_revision a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:landuse a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "For describing the primary use of areas of land." ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:man_made a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "The man-made tag is for identifying man made structures." ;
+    rdfs:range xsd:string .
+osmpower:mapillary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Reference code for a Mapillary image" ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:name_en a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:name_ru a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:note a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "A note to yourself or to other mappers." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:phases a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:rating a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:ref_FR_RTE a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "French codification of power transmission networks" ;
+    rdfs:range xsd:string .
+osmpower:ref_bag a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "BAG reference number for properties" ;
+    rdfs:range xsd:string .
+osmpower:ref_ruian_building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "RUIAN reference id of a building" ;
+    rdfs:range xsd:string .
+osmpower:roof_colour a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Colour of the roof" ;
+    rdfs:range xsd:string .
+osmpower:roof_material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Outer material for the building roof." ;
+    rdfs:range xsd:string .
+osmpower:roof_shape a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Roof shape type." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:source_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "For indicating the date when the source of information of anything added to the OSM database was taken." ;
+    rdfs:range xsd:string .
+osmpower:start_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Date when feature opened or the construction of the feature finished." ;
+    rdfs:range xsd:string .
+osmpower:street_cabinet a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:range xsd:string .
+osmpower:survey_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Date of last time the feature was surveyed" ;
+    rdfs:range xsd:string .
+osmpower:type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Type of a relation" ;
+    rdfs:range xsd:string .
+osmpower:utility a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Specifies the type of utility infrastructure which a feature represents" ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:voltage_primary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Primary voltage" ;
+    rdfs:range xsd:string .
+osmpower:voltage_secondary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Substation ;
+    rdfs:comment "Voltage of a transformer interface which delivers power to consumers" ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Substation ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Switch rdf:type owl:Class .
+osmpower:Switch rdfs:subClassOf osmpower:PowerThing .
+osmpower:Switch rdfs:comment "A device which allows electrical network operators to power up & down lines and transformers in substations or along the power grid." .
+osmpower:cables a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Switch ;
+    rdfs:comment "Number of electrically separated power-carrying conductors in a power line" ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Switch ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Switch ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Switch ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Switch ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Switchgear rdf:type owl:Class .
+osmpower:Switchgear rdfs:subClassOf osmpower:PowerThing .
+osmpower:Switchgear rdfs:comment "A switchgear, which comprises one or more busbar assemblies and a number of bays each connecting a circuit to the busbar assembly." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Switchgear ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Terminal rdf:type owl:Class .
+osmpower:Terminal rdfs:subClassOf osmpower:PowerThing .
+osmpower:Terminal rdfs:comment "A point of connection where an overhead power line ends on a building or wall, for example, when connecting it to an indoor substation" .
+osmpower:line_attachment a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Terminal ;
+    rdfs:comment "Consistently defining how a power, telecom or even washing line is attached to its supports" ;
+    rdfs:range xsd:string .
+osmpower:location_transition a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Terminal ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Terminal ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Terminal ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Tower rdf:type owl:Class .
+osmpower:Tower rdfs:subClassOf osmpower:PowerThing .
+osmpower:Tower rdfs:comment "A tower or pylon carrying high voltage electricity cables. Often constructed from steel latticework but tubular or solid pylons are also used." .
+osmpower:addr_city a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:range xsd:string .
+osmpower:branch a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Identifies which branch of a brand or chain this object represents, or controversially the name of a branch railway." ;
+    rdfs:range xsd:string .
+osmpower:cables a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Number of electrically separated power-carrying conductors in a power line" ;
+    rdfs:range xsd:string .
+osmpower:colour a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "The colour associated with the object" ;
+    rdfs:range xsd:string .
+osmpower:contact_website a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:range xsd:string .
+osmpower:created_by a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Tag representing Editor/Script which created/(edited) this item." ;
+    rdfs:range xsd:string .
+osmpower:description a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "To provide additional information about the related element to the end map user." ;
+    rdfs:range xsd:string .
+osmpower:design a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Describes the design of poles or pylons carrying high voltage electricity cables" ;
+    rdfs:range xsd:string .
+osmpower:design_incomplete a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:range xsd:string .
+osmpower:disused a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Specifies if feature is disused but in a reasonable state of repair. Also see abandoned:" ;
+    rdfs:range xsd:string .
+osmpower:fixme a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Description of a (possible) error in the map" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:height a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Physical attribute of other keys. Height is the measurement of vertical distance. It indicates how tall something is." ;
+    rdfs:range xsd:string .
+osmpower:levels a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:range xsd:string .
+osmpower:line_attachment a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Consistently defining how a power, telecom or even washing line is attached to its supports" ;
+    rdfs:range xsd:string .
+osmpower:location_transition a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:range xsd:string .
+osmpower:man_made a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "The man-made tag is for identifying man made structures." ;
+    rdfs:range xsd:string .
+osmpower:material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Describes the main material of a physical feature." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:note a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "A note to yourself or to other mappers." ;
+    rdfs:range xsd:string .
+osmpower:odbl a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:source_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "For indicating the date when the source of information of anything added to the OSM database was taken." ;
+    rdfs:range xsd:string .
+osmpower:source_position a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:range xsd:string .
+osmpower:source_ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:range xsd:string .
+osmpower:source_ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Used to link external source of information: photos, video links" ;
+    rdfs:range xsd:string .
+osmpower:start_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Date when feature opened or the construction of the feature finished." ;
+    rdfs:range xsd:string .
+osmpower:structure a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Describes the structure of pylons carrying high voltage electricity cables" ;
+    rdfs:range xsd:string .
+osmpower:todo a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "Used for to-do notes" ;
+    rdfs:range xsd:string .
+osmpower:tower_type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:range xsd:string .
+osmpower:triple_tower a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Tower ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Tower ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Transformer rdf:type owl:Class .
+osmpower:Transformer rdfs:subClassOf osmpower:PowerThing .
+osmpower:Transformer rdfs:comment "A device for stepping up or down electric voltage. Large power transformers are typically located inside substations" .
+osmpower:addr_street a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:range xsd:string .
+osmpower:building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:comment "To mark the outline of a building, a man-made structure with a roof, standing more or less permanently in one place." ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:phases a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:range xsd:string .
+osmpower:rating a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:voltage_primary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:comment "Primary voltage" ;
+    rdfs:range xsd:string .
+osmpower:voltage_secondary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transformer ;
+    rdfs:comment "Voltage of a transformer interface which delivers power to consumers" ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Transformer ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Bay rdf:type owl:Class .
+osmpower:Bay rdfs:subClassOf osmpower:Line .
+osmpower:Bay rdfs:comment "A power line within a substation which connects a circuit to a busbar" .
+osmpower:cables a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Bay ;
+    rdfs:comment "Number of electrically separated power-carrying conductors in a power line" ;
+    rdfs:range xsd:string .
+osmpower:circuits a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Bay ;
+    rdfs:comment "Number of electrical circuits in a power line or cable connection" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Bay ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:layer a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Bay ;
+    rdfs:comment "Used to mark the vertical relationship between two intersecting features." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Bay ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Bay ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Bay ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Bay ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Bay ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:wires a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Bay ;
+    rdfs:comment "Number of wires per power cable. single (1), double (2), triple (3) or quad (4)." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Bay ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Busbar rdf:type owl:Class .
+osmpower:Busbar rdfs:subClassOf osmpower:Line .
+osmpower:Busbar rdfs:comment "Identifies a power line as a busbar, the central connection in a substation" .
+osmpower:cables a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Busbar ;
+    rdfs:comment "Number of electrically separated power-carrying conductors in a power line" ;
+    rdfs:range xsd:string .
+osmpower:circuits a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Busbar ;
+    rdfs:comment "Number of electrical circuits in a power line or cable connection" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Busbar ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Busbar ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Busbar ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Busbar ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Busbar ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Busbar ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Substation rdf:type owl:Class .
+osmpower:Substation rdfs:subClassOf osmpower:Line .
+osmpower:Substation rdfs:comment "Unspecific substation power line" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Substation ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Fjord rdf:type owl:Class .
+osmpower:Fjord rdfs:subClassOf osmpower:Bay .
+osmpower:Fjord rdfs:comment "Long, narrow inlet with steep sides or cliffs, created by glacial erosion." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Fjord ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Compensation rdf:type owl:Class .
+osmpower:Compensation rdfs:subClassOf osmpower:Substation .
+osmpower:Compensation rdfs:comment "A substation only used for reactive power compensation of a power line or underground cable. It usually does not comprise transformers but switchgear can be used for compensation devices disconnection." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Compensation ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Converter rdf:type owl:Class .
+osmpower:Converter rdfs:subClassOf osmpower:Substation .
+osmpower:Converter rdfs:comment "A place to convert alternative power to direct current (or opposite). It must comprise HVDC transformer and may contain switching devices also." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Converter ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Distribution rdf:type owl:Class .
+osmpower:Distribution rdfs:subClassOf osmpower:Substation .
+osmpower:Distribution rdfs:comment "A place to transform power from transmission grid and to feed regional distribution grid. It often have an inside voltage between 100 and 25 kV" .
+osmpower:addr_city a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range xsd:string .
+osmpower:addr_full a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range xsd:string .
+osmpower:addr_housenumber a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range xsd:string .
+osmpower:addr_street a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range xsd:string .
+osmpower:barrier a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "A barrier is a physical structure which blocks or impedes movement." ;
+    rdfs:range xsd:string .
+osmpower:branch a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Identifies which branch of a brand or chain this object represents, or controversially the name of a branch railway." ;
+    rdfs:range xsd:string .
+osmpower:building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "To mark the outline of a building, a man-made structure with a roof, standing more or less permanently in one place." ;
+    rdfs:range xsd:string .
+osmpower:building_levels a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range xsd:string .
+osmpower:fixme a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Description of a (possible) error in the map" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:landuse a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "For describing the primary use of areas of land." ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:pipeline a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Tags related to pipelines" ;
+    rdfs:range xsd:string .
+osmpower:rating a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:start_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Date when feature opened or the construction of the feature finished." ;
+    rdfs:range xsd:string .
+osmpower:substance a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Substances transported in pipelines" ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Generation rdf:type owl:Class .
+osmpower:Generation rdfs:subClassOf osmpower:Substation .
+osmpower:Generation rdfs:comment "A substation which transforms or dispatches a power plant's output for feed-in to the transmission network" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Generation ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Industrial rdf:type owl:Class .
+osmpower:Industrial rdfs:subClassOf osmpower:Substation .
+osmpower:Industrial rdfs:comment "Private space dedicated to industrial or heavy business activities feeding. Each substation of this kind is operated by a given client and not by the traditional power grid company." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Industrial ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Measurement rdf:type owl:Class .
+osmpower:Measurement rdfs:subClassOf osmpower:Substation .
+osmpower:Measurement rdfs:comment "A place where measurement devices are installed to monitor fluids or power moving along network edges, lines or pipelines" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Measurement ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:MinorDistribution rdf:type owl:Class .
+osmpower:MinorDistribution rdfs:subClassOf osmpower:Substation .
+osmpower:MinorDistribution rdfs:comment "A small substation at the lowest level of transforming in the distribution grid. This kind of substation directly supplies households and small businesses with low voltage power." .
+osmpower:addr_city a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:range xsd:string .
+osmpower:addr_country a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:range xsd:string .
+osmpower:addr_housenumber a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:range xsd:string .
+osmpower:addr_postcode a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:range xsd:string .
+osmpower:addr_street a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:range xsd:string .
+osmpower:branch a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Identifies which branch of a brand or chain this object represents, or controversially the name of a branch railway." ;
+    rdfs:range xsd:string .
+osmpower:building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "To mark the outline of a building, a man-made structure with a roof, standing more or less permanently in one place." ;
+    rdfs:range xsd:string .
+osmpower:building_levels a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:range xsd:string .
+osmpower:building_material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Outer material for the building façade." ;
+    rdfs:range xsd:string .
+osmpower:building_ruian_type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "RUIAN type of the building" ;
+    rdfs:range xsd:string .
+osmpower:check_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Date of latest review of the data" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:height a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Physical attribute of other keys. Height is the measurement of vertical distance. It indicates how tall something is." ;
+    rdfs:range xsd:string .
+osmpower:it_fvg_ctrn_code a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Defines codes used by Carta Tecnica Regionale Numerica (CTRN, Regional Numeric Technical Chart) by Regione Friuli Venezia Giulia (Italy)." ;
+    rdfs:range xsd:string .
+osmpower:it_fvg_ctrn_revision a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:man_made a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "The man-made tag is for identifying man made structures." ;
+    rdfs:range xsd:string .
+osmpower:mapillary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Reference code for a Mapillary image" ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:rating a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:ref_ruian_building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "RUIAN reference id of a building" ;
+    rdfs:range xsd:string .
+osmpower:roof_colour a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Colour of the roof" ;
+    rdfs:range xsd:string .
+osmpower:roof_shape a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Roof shape type." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:start_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Date when feature opened or the construction of the feature finished." ;
+    rdfs:range xsd:string .
+osmpower:street_cabinet a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:range xsd:string .
+osmpower:survey_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Date of last time the feature was surveyed" ;
+    rdfs:range xsd:string .
+osmpower:utility a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Specifies the type of utility infrastructure which a feature represents" ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:voltage_primary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Primary voltage" ;
+    rdfs:range xsd:string .
+osmpower:voltage_secondary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:comment "Voltage of a transformer interface which delivers power to consumers" ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:MinorDistribution ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Traction rdf:type owl:Class .
+osmpower:Traction rdfs:subClassOf osmpower:Substation .
+osmpower:Traction rdfs:comment "A substation whose main function is to supply a traction system (railways, trams and/or trolleybuses) with various frequency conversion schemes. They are often located near a railway" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Traction ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Transition rdf:type owl:Class .
+osmpower:Transition rdfs:subClassOf osmpower:Substation .
+osmpower:Transition rdfs:comment "Usually a fenced yard protecting the place where overhead power line goes underground." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Transition ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Transmission rdf:type owl:Class .
+osmpower:Transmission rdfs:subClassOf osmpower:Substation .
+osmpower:Transmission rdfs:comment "A place to connect and switch power transmission lines which transport power between production and consumption places. Inside voltage is mainly over 100 kV." .
+osmpower:barrier a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transmission ;
+    rdfs:comment "A barrier is a physical structure which blocks or impedes movement." ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transmission ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transmission ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transmission ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transmission ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transmission ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transmission ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Transmission ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Transmission ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:AluminiumSmelting rdf:type owl:Class .
+osmpower:AluminiumSmelting rdfs:subClassOf osmpower:Industrial .
+osmpower:AluminiumSmelting rdfs:comment "Aluminium smelting factory - producing aluminium" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:AluminiumSmelting ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:AutoWrecker rdf:type owl:Class .
+osmpower:AutoWrecker rdfs:subClassOf osmpower:Industrial .
+osmpower:AutoWrecker rdfs:comment "An area set aside for the long-term disposal or recycling of wrecked vehicles Given that OSM prefers British English language for tags, consider using tag:industrial=scrap_yard." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:AutoWrecker ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Bakery rdf:type owl:Class .
+osmpower:Bakery rdfs:subClassOf osmpower:Industrial .
+osmpower:Bakery rdfs:comment "Industrial facility that produces flour-based food." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Bakery ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Brewery rdf:type owl:Class .
+osmpower:Brewery rdfs:subClassOf osmpower:Industrial .
+osmpower:Brewery rdfs:comment "Industrial production of beer" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Brewery ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Brickyard rdf:type owl:Class .
+osmpower:Brickyard rdfs:subClassOf osmpower:Industrial .
+osmpower:Brickyard rdfs:comment "A brick making factory" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Brickyard ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Depot rdf:type owl:Class .
+osmpower:Depot rdfs:subClassOf osmpower:Industrial .
+osmpower:Depot rdfs:comment "A place where vehicles are stored and served." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Depot ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Distributor rdf:type owl:Class .
+osmpower:Distributor rdfs:subClassOf osmpower:Industrial .
+osmpower:Distributor rdfs:comment "A distributor for some product. Does not generally sell to the public." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Distributor ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Factory rdf:type owl:Class .
+osmpower:Factory rdfs:subClassOf osmpower:Industrial .
+osmpower:Factory rdfs:comment "A place where manufacturing takes place, not otherwise specified." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Factory ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:FoodIndustry rdf:type owl:Class .
+osmpower:FoodIndustry rdfs:subClassOf osmpower:Industrial .
+osmpower:FoodIndustry rdfs:comment "An industrial food production" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:FoodIndustry ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Furniture rdf:type owl:Class .
+osmpower:Furniture rdfs:subClassOf osmpower:Industrial .
+osmpower:Furniture rdfs:comment "Furniture factory" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Furniture ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:GrindingMill rdf:type owl:Class .
+osmpower:GrindingMill rdfs:subClassOf osmpower:Industrial .
+osmpower:GrindingMill rdfs:comment "A device that breaks solid materials into smaller pieces by grinding, crushing, or cutting. The aftermath is powdered product, not liquid extract like oil mill." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:GrindingMill ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:HeatingStation rdf:type owl:Class .
+osmpower:HeatingStation rdfs:subClassOf osmpower:Industrial .
+osmpower:HeatingStation rdfs:comment "Heat production station" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:HeatingStation ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:IceFactory rdf:type owl:Class .
+osmpower:IceFactory rdfs:subClassOf osmpower:Industrial .
+osmpower:IceFactory rdfs:comment "A place where ice are made and sold (e.g. to fishing boat)." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:IceFactory ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:MachineShop rdf:type owl:Class .
+osmpower:MachineShop rdfs:subClassOf osmpower:Industrial .
+osmpower:MachineShop rdfs:comment "A place where a variety of parts are machined for different companies." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:MachineShop ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Mine rdf:type owl:Class .
+osmpower:Mine rdfs:subClassOf osmpower:Industrial .
+osmpower:Mine rdfs:comment "Mine - extraction of mineral resources from the ground" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Mine ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:MobileEquipment rdf:type owl:Class .
+osmpower:MobileEquipment rdfs:subClassOf osmpower:Industrial .
+osmpower:MobileEquipment rdfs:comment "A place where mobile equipment of some kind is sold or rented." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:MobileEquipment ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Oil rdf:type owl:Class .
+osmpower:Oil rdfs:subClassOf osmpower:Industrial .
+osmpower:Oil rdfs:comment "Oil industry - includes the global processes of exploration, extraction, refining, and marketing petroleum products." .
+osmpower:barrier a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Oil ;
+    rdfs:comment "A barrier is a physical structure which blocks or impedes movement." ;
+    rdfs:range xsd:string .
+osmpower:landuse a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Oil ;
+    rdfs:comment "For describing the primary use of areas of land." ;
+    rdfs:range xsd:string .
+osmpower:man_made a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Oil ;
+    rdfs:comment "The man-made tag is for identifying man made structures." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Oil ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Oil ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Oil ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Oil ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:OilMill rdf:type owl:Class .
+osmpower:OilMill rdfs:subClassOf osmpower:Industrial .
+osmpower:OilMill rdfs:comment "A industrial mill designed to crush or bruise oil-bearing seeds, such as linseed or peanuts, or other oil-rich vegetable material." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:OilMill ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Port rdf:type owl:Class .
+osmpower:Port rdfs:subClassOf osmpower:Industrial .
+osmpower:Port rdfs:comment "Port area handling commercial traffic" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Port ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:RiceMill rdf:type owl:Class .
+osmpower:RiceMill rdfs:subClassOf osmpower:Industrial .
+osmpower:RiceMill rdfs:comment "A place where paddy or rough rice is transformed to white rice ready for consumption." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:RiceMill ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:SaltPond rdf:type owl:Class .
+osmpower:SaltPond rdfs:subClassOf osmpower:Industrial .
+osmpower:SaltPond rdfs:comment "A salt pond is where water containing salt is sun-heated, and salt is extracted by humans." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:SaltPond ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Sawmill rdf:type owl:Class .
+osmpower:Sawmill rdfs:subClassOf osmpower:Industrial .
+osmpower:Sawmill rdfs:comment "A place where logs are turned into wood products including lumber and plywood." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Sawmill ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:ScrapYard rdf:type owl:Class .
+osmpower:ScrapYard rdfs:subClassOf osmpower:Industrial .
+osmpower:ScrapYard rdfs:comment "Place where decommissioned vehicles are brought for dismantling." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:ScrapYard ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Shipyard rdf:type owl:Class .
+osmpower:Shipyard rdfs:subClassOf osmpower:Industrial .
+osmpower:Shipyard rdfs:comment "A place where ships are constructed." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Shipyard ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Slaughterhouse rdf:type owl:Class .
+osmpower:Slaughterhouse rdfs:subClassOf osmpower:Industrial .
+osmpower:Slaughterhouse rdfs:comment "A place where animals are slaughtered." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Slaughterhouse ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Steelmaking rdf:type owl:Class .
+osmpower:Steelmaking rdfs:subClassOf osmpower:Industrial .
+osmpower:Steelmaking rdfs:comment "Steelmaking factory - producing steel from iron ore and scrap" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Steelmaking ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Warehouse rdf:type owl:Class .
+osmpower:Warehouse rdfs:subClassOf osmpower:Industrial .
+osmpower:Warehouse rdfs:comment "A place where goods are stored and shipped from but not manufactured." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Warehouse ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:WellCluster rdf:type owl:Class .
+osmpower:WellCluster rdfs:subClassOf osmpower:Industrial .
+osmpower:WellCluster rdfs:comment "Well cluster." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:WellCluster ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Wellsite rdf:type owl:Class .
+osmpower:Wellsite rdfs:subClassOf osmpower:Industrial .
+osmpower:Wellsite rdfs:comment "Well site." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Wellsite ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Aerial rdf:type owl:Class .
+osmpower:Aerial rdfs:subClassOf osmpower:Marker .
+osmpower:Aerial rdfs:comment "A marker designed to be seen by aerial inspection, usually composed of a roof cover on a pole" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Aerial ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Ground rdf:type owl:Class .
+osmpower:Ground rdfs:subClassOf osmpower:Marker .
+osmpower:Ground rdfs:comment "A kind of sign directly installed on ground with help of fixation support to hold it in place" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Ground ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Pedestal rdf:type owl:Class .
+osmpower:Pedestal rdfs:subClassOf osmpower:Marker .
+osmpower:Pedestal rdfs:comment "A pedestal: a marker built from plastic or concrete, unlike a stone. Useful information is found on top of them" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Pedestal ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Plate rdf:type owl:Class .
+osmpower:Plate rdfs:subClassOf osmpower:Marker .
+osmpower:Plate rdfs:comment "A kind of sign installed on walls or at least on a not dedicated support indicating what is installed underground or indoor nearby" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Plate ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Post rdf:type owl:Class .
+osmpower:Post rdfs:subClassOf osmpower:Marker .
+osmpower:Post rdfs:comment "A standard kind of marker composed of a small pole or mast with information written on it. The support is dedicated to the marker. See plate for other situations." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Post ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Stone rdf:type owl:Class .
+osmpower:Stone rdfs:subClassOf osmpower:Marker .
+osmpower:Stone rdfs:comment "A stone marker is a natural support on which useful information is directly etched or painted." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Stone ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Transition rdf:type owl:Class .
+osmpower:Transition rdfs:subClassOf osmpower:Pole .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Transition ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Funicular rdf:type owl:Class .
+osmpower:Funicular rdfs:subClassOf osmpower:Station .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Funicular ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:LightRail rdf:type owl:Class .
+osmpower:LightRail rdfs:subClassOf osmpower:Station .
+osmpower:LightRail rdfs:comment "Lightrail station" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:LightRail ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Subway rdf:type owl:Class .
+osmpower:Subway rdfs:subClassOf osmpower:Station .
+osmpower:Subway rdfs:comment "Subway station" .
+osmpower:building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "To mark the outline of a building, a man-made structure with a roof, standing more or less permanently in one place." ;
+    rdfs:range xsd:string .
+osmpower:layer a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "Used to mark the vertical relationship between two intersecting features." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:name_en a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:range xsd:string .
+osmpower:name_ja a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:range xsd:string .
+osmpower:name_ko a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:range xsd:string .
+osmpower:name_ru a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:range xsd:string .
+osmpower:name_zh a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:range xsd:string .
+osmpower:network a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "A system of routes (or bicycle rental stations) typically maintained or designated by a single agency or organization, or for bicycle and walking routes, an indication of the scope of the route." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:public_transport a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "Public transport infrastructure tag" ;
+    rdfs:range xsd:string .
+osmpower:railway a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:start_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "Date when feature opened or the construction of the feature finished." ;
+    rdfs:range xsd:string .
+osmpower:wheelchair a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "Indicate if a special place can be used with wheelchairs." ;
+    rdfs:range xsd:string .
+osmpower:wikidata a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:range xsd:string .
+osmpower:wikipedia a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Subway ;
+    rdfs:comment "Provides a link to Wikipedia's article about the feature." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Subway ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:CircuitBreaker rdf:type owl:Class .
+osmpower:CircuitBreaker rdfs:subClassOf osmpower:Switch .
+osmpower:CircuitBreaker rdfs:comment "A Circuit-breaker is the only kind of power switch which offers enough protection (safety) against abnormal power currents and can be operated when bound circuit is loaded." .
+osmpower:cables a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CircuitBreaker ;
+    rdfs:comment "Number of electrically separated power-carrying conductors in a power line" ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CircuitBreaker ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CircuitBreaker ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:CircuitBreaker ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:CircuitBreaker ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Disconnector rdf:type owl:Class .
+osmpower:Disconnector rdfs:subClassOf osmpower:Switch .
+osmpower:Disconnector rdfs:comment "A disconnector is capable to open circuits when a negligible current have to be broken. It provides a sufficient protection to high voltages when open but mustn't be operated when the power circuit is loaded." .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Disconnector ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Disconnector ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Disconnector ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Disconnector ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Earthing rdf:type owl:Class .
+osmpower:Earthing rdfs:subClassOf osmpower:Switch .
+osmpower:Earthing rdfs:comment "A switch to link a given power circuit to earth as for ensuring safety of maintenance operations (corresponding power circuit won't be loaded when switch is closed)." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Earthing ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Mechanical rdf:type owl:Class .
+osmpower:Mechanical rdfs:subClassOf osmpower:Switch .
+osmpower:Mechanical rdfs:comment "A Mechanical switch is the most common form of power switch devices. Such a switch can carry normal currents and currents under abnormal specification but only breaks the first one" .
+osmpower:material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Mechanical ;
+    rdfs:comment "Describes the main material of a physical feature." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Mechanical ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Mechanical ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Auto rdf:type owl:Class .
+osmpower:Auto rdfs:subClassOf osmpower:Transformer .
+osmpower:Auto rdfs:comment "An autotransformer is a transformer in which part of the winding is common to both primary and secondary circuits. It is most used on transmission grids" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Auto ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Auxiliary rdf:type owl:Class .
+osmpower:Auxiliary rdfs:subClassOf osmpower:Transformer .
+osmpower:Auxiliary rdfs:comment "Auxiliary transformers intend to supply power to substation internal systems. They're not feeding any subscriber connected to power grid but act as a load on the substation architecture." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Auxiliary ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Converter rdf:type owl:Class .
+osmpower:Converter rdfs:subClassOf osmpower:Transformer .
+osmpower:Converter rdfs:comment "A converter transformer is a special transformer used in HVDC converter plants. It is always located directly adjacent to the valve hall." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Converter ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Distribution rdf:type owl:Class .
+osmpower:Distribution rdfs:subClassOf osmpower:Transformer .
+osmpower:Distribution rdfs:comment "A distribution transformer transfers power from the distribution grid to directly connected electricity consumers." .
+osmpower:building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "To mark the outline of a building, a man-made structure with a roof, standing more or less permanently in one place." ;
+    rdfs:range xsd:string .
+osmpower:building_ruian_type a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "RUIAN type of the building" ;
+    rdfs:range xsd:string .
+osmpower:frequency a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "For describing the frequency of electric power supply networks, electrified railways or buses, and communications devices. The unit is Hertz (cycles per second)." ;
+    rdfs:range xsd:string .
+osmpower:height a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Physical attribute of other keys. Height is the measurement of vertical distance. It indicates how tall something is." ;
+    rdfs:range xsd:string .
+osmpower:location a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "To define the location of a feature which may be above or under ground or in relation to objects such as roofs, bridges or buildings" ;
+    rdfs:range xsd:string .
+osmpower:location_transition a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range xsd:string .
+osmpower:man_made a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "The man-made tag is for identifying man made structures." ;
+    rdfs:range xsd:string .
+osmpower:material a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Describes the main material of a physical feature." ;
+    rdfs:range xsd:string .
+osmpower:name a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "The primary name: in general, the most prominent signposted name or the most common name in the local language(s)." ;
+    rdfs:range xsd:string .
+osmpower:operator a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Сompany, corporation, person or any other entity who is directly in charge of the current operation of a map object" ;
+    rdfs:range xsd:string .
+osmpower:phases a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range xsd:string .
+osmpower:rating a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range xsd:string .
+osmpower:ref a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Used for reference numbers or codes. Common for roads, highway exits, routes, etc." ;
+    rdfs:range xsd:string .
+osmpower:ref_ruian_building a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "RUIAN reference id of a building" ;
+    rdfs:range xsd:string .
+osmpower:source a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "For indicating the source of all tags added to the OSM database." ;
+    rdfs:range xsd:string .
+osmpower:start_date a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Date when feature opened or the construction of the feature finished." ;
+    rdfs:range xsd:string .
+osmpower:street_cabinet a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range xsd:string .
+osmpower:voltage a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "For describing the voltage of power lines, cables, and substations." ;
+    rdfs:range xsd:string .
+osmpower:voltage_primary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Primary voltage" ;
+    rdfs:range xsd:string .
+osmpower:voltage_secondary a owl:DatatypeProperty ;
+    rdfs:domain osmpower:Distribution ;
+    rdfs:comment "Voltage of a transformer interface which delivers power to consumers" ;
+    rdfs:range xsd:string .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Distribution ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Generator rdf:type owl:Class .
+osmpower:Generator rdfs:subClassOf osmpower:Transformer .
+osmpower:Generator rdfs:comment "A generator unit transformer connects directly to the generator terminals and is used for stepping up the generator voltage to that of the transmission or distribution grid." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Generator ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:PhaseAngleRegulator rdf:type owl:Class .
+osmpower:PhaseAngleRegulator rdfs:subClassOf osmpower:Transformer .
+osmpower:PhaseAngleRegulator rdfs:comment "A phase angle regulator is a special transformer for controlling the flow of power in a three-phase network by shifting the phase angle." .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:PhaseAngleRegulator ;
+    rdfs:range osmpower:PowerThing .
+
+osmpower:Traction rdf:type owl:Class .
+osmpower:Traction rdfs:subClassOf osmpower:Transformer .
+osmpower:Traction rdfs:comment "A traction transformer feeds railway overhead or rail contact lines" .
+osmpower:partOf a owl:ObjectProperty ; 
+    rdfs:domain osmpower:Traction ;
+    rdfs:range osmpower:PowerThing .
+
