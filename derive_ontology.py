@@ -165,8 +165,17 @@ def create_jsonld_ontology():
 		ontology_file.write('\n')
 
 		compacted_jsonld['_id'] = compacted_jsonld.pop('@id')
+		compacted_jsonld['@context'] = 'http://christian-kurze.de/ontology'
 		ontology_coll.replace_one({'_id': compacted_jsonld['_id']}, compacted_jsonld, upsert=True)
 
+	# That feels hacky??
+
+	context_doc = {
+		'_id': 'http://christian-kurze.de/ontology',
+		'@context': context
+	}
+	print('Creating JSON-LD context for describing ontologies: (_id: ' + context_doc['_id'] + ')')
+	context_coll.replace_one({'_id': context_doc['_id']}, context_doc, upsert=True)
 	ontology_file.close()
 
 
@@ -184,7 +193,7 @@ def create_jsonld_context():
 	context_doc['_id'] = OSMPOWER_URL
 
 	result = context_coll.replace_one({'_id': context_doc['_id']}, context_doc, upsert=True)
-	print(result.raw_result)
+	# print(result.raw_result)
 	
 def to_classname(tag):
 	return snake_to_camel(tag)
