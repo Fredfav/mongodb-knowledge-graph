@@ -6,7 +6,6 @@ import os
 
 from  pprint import pprint
 import json
-from pyld import jsonld
 
 from rdflib import Graph, plugin
 from rdflib.serializer import Serializer
@@ -39,16 +38,12 @@ TTL_FILENAME = OPENSTREETMAP_NAMESPACE + '.ttl'
 OWL_TO_JSON_JAR_ABSOLUTE_PATH = '/Users/christian.kurze/development/owl2jsonld/target/uberjar/owl2jsonld-0.2.2-SNAPSHOT-standalone.jar'
 
 mongo_client = pymongo.MongoClient('mongodb+srv://knowledge:graph@knowledgegraphfreetier.9cnxl.mongodb.net/osm?retryWrites=true&w=majority')
-#mongo_client = pymongo.MongoClient('localhost:27017')
+# mongo_client = pymongo.MongoClient('localhost:27017')
 
 raw_class_tags_coll = mongo_client.osm.raw_class_tags
 raw_releated_tags_coll = mongo_client.osm.raw_releated_tags
 raw_key_wiki_information_coll = mongo_client.osm.raw_key_wiki_information
 context_coll = mongo_client.osm.context
-ontology_coll = mongo_client.osm.ontology
-ontology_coll.create_index([('@type', pymongo.ASCENDING), ('_id', pymongo.ASCENDING)])
-ontology_coll.create_index([('@subClassOf.@id', pymongo.ASCENDING)])
-ontology_coll.create_index([('domain.@id', pymongo.ASCENDING)])
 
 attribute_comments = {}
 tags_used_for_classes = set(())
@@ -67,7 +62,6 @@ def main():
 		tags_used_for_classes.add(tag['value'])
 
 	create_ttl_file(tags)
-	create_jsonld_ontology()
 	create_jsonld_context()
 
 def create_ttl_file(tags):
@@ -133,43 +127,6 @@ def create_ttl_file(tags):
 		ttl_file.write('\n')
 
 	ttl_file.close()
-
-def create_jsonld_ontology():
-	print('Creating JSON-LD Ontology from: ' + TTL_FILENAME)
-
-	ontology_file = open(OPENSTREETMAP_NAMESPACE + '.jsonld', 'w')
-	
-	# TODO: Here we should work with contexts instead of long field names
-	ttl_file = open(TTL_FILENAME, 'r')
-	ttl_data = ttl_file.read()
-	ttl_file.close()
-
-	g = Graph().parse(data=ttl_data, format='ttl')
-		
-	# Serialize as JSON-LD
-	serialized_jsonld = g.serialize(format='json-ld').decode('utf-8') #, indent=4)
-	# print(serialized_jsonld)
-
-	# Build compacted version
-	# Is there a way to derive the context automatically?
-	context = { 
-		'comment': 'http://www.w3.org/2000/01/rdf-schema#comment',
-		'domain': 'http://www.w3.org/2000/01/rdf-schema#domain',
-		'range': 'http://www.w3.org/2000/01/rdf-schema#range',
-		'subClassOf': 'http://www.w3.org/2000/01/rdf-schema#subClassOf'
-	}
-	parsed_jsonld = json.loads(serialized_jsonld)
-	for e in parsed_jsonld:
-		compacted_jsonld = jsonld.compact(e, context)
-		ontology_file.write(json.dumps(compacted_jsonld, indent=4))
-		ontology_file.write('\n')
-
-		compacted_jsonld['_id'] = compacted_jsonld.pop('@id')
-		ontology_coll.replace_one({'_id': compacted_jsonld['_id']}, compacted_jsonld, upsert=True)
-
-	ontology_file.close()
-
-
 
 def create_jsonld_context():
 	print('Creating JSON-LD context for Ontology: ' + TTL_FILENAME + ' (_id: ' + OSMPOWER_URL + ')')
