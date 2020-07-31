@@ -30,14 +30,14 @@ from rdflib.serializer import Serializer
 OPENSTREETMAP_NAMESPACE = 'osmpower'
 OSMPOWER_URL = 'http://christian-kurze.de/ontology/osm/power'
 KEY_TO_ANALYZE = 'power'
-TTL_INSTANCE_FILENAME = OPENSTREETMAP_NAMESPACE + '_bavaria.ttl'
+TTL_INSTANCE_FILENAME = OPENSTREETMAP_NAMESPACE + '_germany.ttl'
 OWL_TO_JSON_JAR_ABSOLUTE_PATH = '/Users/christian.kurze/development/owl2jsonld/target/uberjar/owl2jsonld-0.2.2-SNAPSHOT-standalone.jar'
 
 #mongo_client = pymongo.MongoClient('mongodb+srv://knowledge:graph@knowledgegraphfreetier.9cnxl.mongodb.net/osm?retryWrites=true&w=majority')
 mongo_client = pymongo.MongoClient('localhost:27017')
 
 raw_class_tags_coll = mongo_client.osm.raw_class_tags
-raw_objects_coll = mongo_client.osm.raw_objects
+raw_objects_coll = mongo_client.osm.raw_objects_germany
 context_coll = mongo_client.osm.context
 ontology_coll = mongo_client.osm.ontology
 
@@ -207,7 +207,7 @@ def snake_to_camel(word):
 	return ''.join(x.capitalize() or '_' for x in word.split('_'))
 
 def to_attributename(word):
-	return word.replace(':', '_')
+	return word.replace(':', '_').replace('¹', '')
 
 def escape_value(value):
 	return value.replace('"', '\\"')

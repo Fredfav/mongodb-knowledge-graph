@@ -39,10 +39,13 @@ mongo_client = pymongo.MongoClient('localhost')
 raw_class_tags_coll = mongo_client.osm.raw_class_tags
 #raw_releated_tags_coll = mongo_client.osm.raw_releated_tags
 
-raw_objects_coll = mongo_client.osm.raw_objects
+raw_objects_coll = mongo_client.osm.raw_objects_germany
 raw_objects_coll.create_index([( "tags.$**", pymongo.ASCENDING)])
 
-osm = esy.osm.pbf.File('/Users/christian.kurze/Downloads/bayern-latest.osm.pbf')
+INPUT_OSM_FILE = '/Users/christian.kurze/Documents/MongoDB/90-Demos/mongodb-hivemq-iot-demo/geo-payloads/germany-latest.osm.pbf'
+#INPUT_OSM_FILE = '/Users/christian.kurze/Downloads/bayern-latest.osm.pbf'
+# osm = esy.osm.pbf.File()
+# osm = esy.osm.pbf.File()
 
 def main():
 	# Alternative: get all tags from MongoDB:
@@ -53,8 +56,7 @@ def main():
 	tags.append('route~power')
 	tags = ','.join(tags)
 	print(tags)
-	#command = '/Users/christian.kurze/development/pbf2json/build/pbf2json.darwin-x64 -tags="' + str(tags) +'" --waynodes=true /Users/christian.kurze/Documents/MongoDB/90-Demos/iot-demos/truck-demo/geo-payloads/germany-latest.osm.pbf'
-	command = '/Users/christian.kurze/development/pbf2json/build/pbf2json.darwin-x64 -tags="' + str(tags) +'" --waynodes=true /Users/christian.kurze/Downloads/bayern-latest.osm.pbf'
+	command = '/Users/christian.kurze/development/pbf2json/build/pbf2json.darwin-x64 -tags="' + str(tags) +'" --waynodes=true ' + INPUT_OSM_FILE
 	print(command)
 	command = command.split()
 

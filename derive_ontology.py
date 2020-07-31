@@ -202,7 +202,7 @@ def snake_to_camel(word):
 	return ''.join(x.capitalize() or '_' for x in word.split('_'))
 
 def to_attributename(word):
-	return word.replace(':', '_')
+	return word.replace(':', '_').replace('¹', '')
 
 def run_command(command):
     p = subprocess.Popen(command,
