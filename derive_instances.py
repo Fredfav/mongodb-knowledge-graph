@@ -27,44 +27,101 @@ from rdflib.serializer import Serializer
 # curl -OL https://download.geofabrik.de/europe/germany/bayern-latest.osm.pbf
 # curl -OL https://download.geofabrik.de/europe/germany/germany-latest.osm.pbf
 
-# Context für WoT Thing Description: https://www.w3.org/2019/wot/td/v1
-
-# Rich Results to analyze websites: https://search.google.com/test/rich-results
-
 OPENSTREETMAP_NAMESPACE = 'osmpower'
 OSMPOWER_URL = 'http://christian-kurze.de/ontology/osm/power'
 KEY_TO_ANALYZE = 'power'
-TTL_FILENAME = OPENSTREETMAP_NAMESPACE + '.ttl'
+TTL_INSTANCE_FILENAME = OPENSTREETMAP_NAMESPACE + '_bavaria.ttl'
 OWL_TO_JSON_JAR_ABSOLUTE_PATH = '/Users/christian.kurze/development/owl2jsonld/target/uberjar/owl2jsonld-0.2.2-SNAPSHOT-standalone.jar'
 
-mongo_client = pymongo.MongoClient('mongodb+srv://knowledge:graph@knowledgegraphfreetier.9cnxl.mongodb.net/osm?retryWrites=true&w=majority')
-# mongo_client = pymongo.MongoClient('localhost:27017')
+#mongo_client = pymongo.MongoClient('mongodb+srv://knowledge:graph@knowledgegraphfreetier.9cnxl.mongodb.net/osm?retryWrites=true&w=majority')
+mongo_client = pymongo.MongoClient('localhost:27017')
 
 raw_class_tags_coll = mongo_client.osm.raw_class_tags
-raw_releated_tags_coll = mongo_client.osm.raw_releated_tags
-raw_key_wiki_information_coll = mongo_client.osm.raw_key_wiki_information
+raw_objects_coll = mongo_client.osm.raw_objects
 context_coll = mongo_client.osm.context
+ontology_coll = mongo_client.osm.ontology
 
 attribute_comments = {}
 tags_used_for_classes = set(())
 
 def main():
 	tags = [taginfo for taginfo in raw_class_tags_coll.aggregate([{'$unwind': {'path': '$data'}}])]	
-	for comment in raw_key_wiki_information_coll.aggregate([
-		{'$addFields': {'data.key': '$key'}}, 
-		{'$project': {'data': {'$filter': {'input': '$data','as': 'd','cond': {'$eq': ['$$d.lang', 'en']}}}}},
-		{'$unwind': {'path': '$data'}}, 
-		{'$replaceRoot': {'newRoot': '$data'}}]):
-		attribute_comments[comment['key']] = comment
-
+	
 	for tag in raw_class_tags_coll.aggregate([{'$unwind': {'path': '$data'}}, {'$project': {'_id': 0, 'key': '$data.key','value': '$data.value'}}]):
 		tags_used_for_classes.add(tag['key'])
 		tags_used_for_classes.add(tag['value'])
 
 	create_ttl_file(tags)
-	create_jsonld_context()
+	# create_jsonld_context()
 
 def create_ttl_file(tags):
+	ttl_file = open(TTL_INSTANCE_FILENAME, 'w')
+	ttl_file.write(
+"""@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix owl2: <http://www.w3.org/2006/12/owl2#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . \n""")
+	ttl_file.write('@prefix osmpower: <' + OSMPOWER_URL + '#> .\n\n')
+
+	cnt = 0
+	for asset in raw_objects_coll.find({'$or': [ {'type':'node'}, {'type':'way'}]}):
+		osmclass = derive_class(asset)
+		ttl_file.write(OPENSTREETMAP_NAMESPACE + ':' + str(asset['_id']) + ' rdf:type ' + get_shortened_class_name_rdf_syntax(osmclass['_id']) + ' ; \n')
+		for tag in asset['tags']:
+			if not tag in tags_used_for_classes:
+				ttl_file.write('    ' + OPENSTREETMAP_NAMESPACE + ':' + to_attributename(tag) + ' "' + escape_value(asset['tags'][tag]) + '" ; \n')
+
+		# TODO: Geometry - if the first and last entry of nodes-array is the same --> Polygon, if not --> Line
+		ttl_file.write(' . \n\n')
+
+		cnt = cnt + 1
+		if cnt % 1000 == 0:
+			print ('Processed ' + str(cnt) + ' Assets')
+	ttl_file.close()
+
+def derive_class(asset):
+	#print('*****************************************************')
+	#print('Asset: ')
+	#print(asset)
+	# Which tags of this asset can be used to derive the class?
+	potential_class_tags = []
+	for class_tag in tags_used_for_classes:
+		if class_tag in asset['tags']:
+			potential_class_tags.append(class_tag)
+
+	#print('potential_class_tags: ')
+	#print(potential_class_tags)
+	#print('ontology_class: ')
+	ontology_class = get_ontology_class(potential_class_tags, asset)
+
+	
+	#print(ontology_class)
+
+	return ontology_class
+
+def get_ontology_class(tags, asset):
+	'''
+	Graph Lookup in MongoDB which of the tags provides us with the most elements in the class tree?
+	This is the lowest class level that we should instantiate.
+	'''
+
+	candidate_classes = [ OSMPOWER_URL + '#' + to_classname(asset['tags'][t]) for t in tags ]
+
+	return ontology_coll.aggregate([
+		{ '$match': { '_id': { '$in': candidate_classes } } }, 
+		{ '$graphLookup': { 
+			'from': 'ontology', 'startWith': '$subClassOf.@id', 
+		 	'connectFromField': 'subClassOf.@id', 'connectToField': '_id', 'as': 'class_hierarchy' 
+		}},
+		{ '$addFields': { 'cnt_parent_classes': { '$size': '$class_hierarchy' } } }, 
+		{ '$sort': { 'cnt_parent_classes': -1 } }, 
+		{ '$limit': 1 } ] ).next()
+
+def get_shortened_class_name_rdf_syntax(class_name):
+	return class_name.replace(OSMPOWER_URL + '#', OPENSTREETMAP_NAMESPACE + ':')
+
+def old():
 	print('Creating TTL file for Ontology: ' + TTL_FILENAME)
 
 	ttl_file = open(TTL_FILENAME, 'w')
@@ -151,6 +208,9 @@ def snake_to_camel(word):
 
 def to_attributename(word):
 	return word.replace(':', '_')
+
+def escape_value(value):
+	return value.replace('"', '\\"')
 
 def run_command(command):
     p = subprocess.Popen(command,
