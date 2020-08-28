@@ -38,8 +38,7 @@ KEY_TO_ANALYZE = 'power'
 TTL_FILENAME = OPENSTREETMAP_NAMESPACE + '.ttl'
 OWL_TO_JSON_JAR_ABSOLUTE_PATH = '/Users/christian.kurze/development/owl2jsonld/target/uberjar/owl2jsonld-0.2.2-SNAPSHOT-standalone.jar'
 
-mongo_client = pymongo.MongoClient('mongodb+srv://knowledge:graph@knowledgegraphfreetier.9cnxl.mongodb.net/osm?retryWrites=true&w=majority')
-#mongo_client = pymongo.MongoClient('localhost:27017')
+mongo_client = pymongo.MongoClient('localhost:27017')
 
 raw_class_tags_coll = mongo_client.osm.raw_class_tags
 raw_releated_tags_coll = mongo_client.osm.raw_releated_tags
@@ -128,8 +127,13 @@ def create_ttl_file(tags):
 		# partOf relationship
 		ttl_file.write(OPENSTREETMAP_NAMESPACE + ':partOf a owl:ObjectProperty ; \n')
 		ttl_file.write('    rdfs:domain ' + OPENSTREETMAP_NAMESPACE + ':' + to_classname(taginfo['data']['value']) + ' ;\n')
-		ttl_file.write('    rdfs:range ' + OPENSTREETMAP_NAMESPACE + ':PowerThing .\n')
-
+		ttl_file.write('    rdfs:range ' + OPENSTREETMAP_NAMESPACE + ':PowerThing ;\n')
+		ttl_file.write('    owl:inverseOf ' + OPENSTREETMAP_NAMESPACE + ':hasPart .\n')
+		# hasPart relationship
+		ttl_file.write(OPENSTREETMAP_NAMESPACE + ':hasPart a owl:ObjectProperty ; \n')
+		ttl_file.write('    rdfs:domain ' + OPENSTREETMAP_NAMESPACE + ':' + to_classname(taginfo['data']['value']) + ' ;\n')
+		ttl_file.write('    rdfs:range ' + OPENSTREETMAP_NAMESPACE + ':PowerThing ;\n')
+		ttl_file.write('    owl:inverseOf ' + OPENSTREETMAP_NAMESPACE + ':partOf .\n')
 		ttl_file.write('\n')
 
 	ttl_file.close()
@@ -148,7 +152,7 @@ def create_jsonld_ontology():
 		
 	# Serialize as JSON-LD
 	serialized_jsonld = g.serialize(format='json-ld').decode('utf-8') #, indent=4)
-	# print(serialized_jsonld)
+	print(serialized_jsonld)
 
 	# Build compacted version
 	# Is there a way to derive the context automatically?

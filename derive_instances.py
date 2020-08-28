@@ -30,16 +30,21 @@ from rdflib.serializer import Serializer
 OPENSTREETMAP_NAMESPACE = 'osmpower'
 OSMPOWER_URL = 'http://christian-kurze.de/ontology/osm/power'
 KEY_TO_ANALYZE = 'power'
-TTL_INSTANCE_FILENAME = OPENSTREETMAP_NAMESPACE + '_germany.ttl'
+#TTL_INSTANCE_FILENAME = OPENSTREETMAP_NAMESPACE + '_germany.ttl'
+TTL_INSTANCE_FILENAME = OPENSTREETMAP_NAMESPACE + '_bavaria.ttl'
 OWL_TO_JSON_JAR_ABSOLUTE_PATH = '/Users/christian.kurze/development/owl2jsonld/target/uberjar/owl2jsonld-0.2.2-SNAPSHOT-standalone.jar'
 
 #mongo_client = pymongo.MongoClient('mongodb+srv://knowledge:graph@knowledgegraphfreetier.9cnxl.mongodb.net/osm?retryWrites=true&w=majority')
 mongo_client = pymongo.MongoClient('localhost:27017')
 
 raw_class_tags_coll = mongo_client.osm.raw_class_tags
-raw_objects_coll = mongo_client.osm.raw_objects_germany
+#raw_objects_coll = mongo_client.osm.raw_objects_germany
+raw_objects_coll = mongo_client.osm.raw_objects
 context_coll = mongo_client.osm.context
 ontology_coll = mongo_client.osm.ontology
+instance_coll = mongo_client.osm.instance
+instance_coll.create_index([('geometry', pymongo.GEOSPHERE)])
+
 
 attribute_comments = {}
 tags_used_for_classes = set(())
@@ -52,7 +57,8 @@ def main():
 		tags_used_for_classes.add(tag['value'])
 
 	create_ttl_file(tags)
-	# create_jsonld_context()
+	create_instances_mongodb(tags)
+	create_part_of_relationship_ttl_and_mongodb()
 
 def create_ttl_file(tags):
 	ttl_file = open(TTL_INSTANCE_FILENAME, 'w')
@@ -78,6 +84,86 @@ def create_ttl_file(tags):
 		cnt = cnt + 1
 		if cnt % 1000 == 0:
 			print ('Processed ' + str(cnt) + ' Assets')
+	ttl_file.close()
+
+def create_instances_mongodb(tags):
+	print('Creating instances in MongoDB')
+
+	cnt = 0
+	for asset in raw_objects_coll.find({'$or': [  {'type':'node'}]}): # {'type':'way'},
+		osmclass = derive_class(asset)
+
+		instance = {
+			'_id': OSMPOWER_URL + '#' + str(asset['_id']),
+			'@type': osmclass['_id'],
+			'@context': OSMPOWER_URL
+		}
+		
+		for tag in asset['tags']:
+			if not tag in tags_used_for_classes:
+				instance[to_attributename(tag)] = escape_value(asset['tags'][tag])
+
+		# Geometry - if the first and last entry of nodes-array is the same --> Polygon, if not --> Line
+		if asset['type'] == 'way':
+			if asset['nodes'][0] == asset['nodes'][-1]:
+				instance['geometry'] = {
+					'type': 'Polygon',
+					'coordinates': [ [ [round(float(x['lon']),7), round(float(x['lat']),7)] for x in asset['nodes'] ] ] 
+				}
+			else:
+				instance['geometry'] = {
+					'type': 'LineString',
+					'coordinates': [ [round(float(x['lon']),7), round(float(x['lat']),7)] for x in asset['nodes'] ] 
+				}
+		# Nodes are Points only
+		if asset['type'] == 'node':
+			instance['geometry'] = {
+				'type': 'Point',
+				'coordinates': [ round(asset['lon'],7), round(asset['lat'],7) ] 
+			}
+
+		cnt = cnt + 1
+		if cnt % 1000 == 0:
+			print ('Processed ' + str(cnt) + ' Assets')
+
+		instance_coll.replace_one({'_id': instance['_id']}, instance, upsert=True)
+
+def create_part_of_relationship_ttl_and_mongodb():
+	print('Create partOf and hasPart relationships')
+	ttl_file = open(TTL_INSTANCE_FILENAME, 'a') # append to TTL file
+
+	# Start with all assets that have a polygon 
+	for asset in instance_coll.find({'geometry.type': 'Polygon'}):
+		# Find all assets within that polygon
+		for i in instance_coll.find(
+			{
+				'geometry': {
+					'$geoWithin': {
+						'$geometry': asset['geometry']
+					}
+				},
+				'_id': { '$ne': asset['_id']}
+			}):
+			# update hasPart
+			hasPart_doc = { '_id': i['_id'], '@type': i['@type']}
+			if 'name' in i:
+				hasPart_doc['name'] = i['name']
+			instance_coll.update_one(
+				{'_id':asset['_id']},
+				{'$addToSet': { 'hasPart': hasPart_doc}}
+			)
+			ttl_file.write(get_shortened_class_name_rdf_syntax(asset['_id']) + ' ' + OPENSTREETMAP_NAMESPACE + ':hasPart ' + get_shortened_class_name_rdf_syntax(i['_id']) + ' . \n')
+
+			# update partOf 
+			partOf_doc = { '_id': asset['_id'], '@type': asset['@type']}
+			if 'name' in asset:
+				hasPart_doc['name'] = asset['name']
+			instance_coll.update_one(
+				{'_id':i['_id']},
+				{'$addToSet': { 'partOf': partOf_doc}}
+			)
+			ttl_file.write(get_shortened_class_name_rdf_syntax(i['_id']) + ' ' + OPENSTREETMAP_NAMESPACE + ':partOf ' + get_shortened_class_name_rdf_syntax(asset['_id']) + ' . \n')
+
 	ttl_file.close()
 
 def derive_class(asset):
@@ -120,85 +206,6 @@ def get_ontology_class(tags, asset):
 
 def get_shortened_class_name_rdf_syntax(class_name):
 	return class_name.replace(OSMPOWER_URL + '#', OPENSTREETMAP_NAMESPACE + ':')
-
-def old():
-	print('Creating TTL file for Ontology: ' + TTL_FILENAME)
-
-	ttl_file = open(TTL_FILENAME, 'w')
-
-	ttl_file.write(
-"""@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix owl2: <http://www.w3.org/2006/12/owl2#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . \n""")
-	ttl_file.write('@prefix osmpower: <' + OSMPOWER_URL + '#> .\n\n')
-
-	ttl_file.write(
-"""###########################################
-# Classes
-###########################################\n\n""")
-
-	ttl_file.write(OPENSTREETMAP_NAMESPACE + ':PowerThing rdf:type owl:Class .\n')
-	ttl_file.write(OPENSTREETMAP_NAMESPACE + ':PowerThing rdfs:subClassOf owl:Thing .\n')
-	ttl_file.write(OPENSTREETMAP_NAMESPACE + ':PowerThing rdfs:comment "Parent class of all power-related things." .\n')
-
-	for taginfo in tags:
-		#if taginfo['data']['on_node'] or taginfo['data']['on_way'] or taginfo['data']['on_area'] or taginfo['data']['on_relation']:
-			
-		# Class
-		ttl_file.write(OPENSTREETMAP_NAMESPACE + ':' + to_classname(taginfo['data']['value']) + ' rdf:type owl:Class .\n')
-		if taginfo['key'] == 'power':
-			ttl_file.write(OPENSTREETMAP_NAMESPACE + ':' + to_classname(taginfo['data']['value']) + ' rdfs:subClassOf ' + OPENSTREETMAP_NAMESPACE + ':PowerThing .\n')
-		else:
-			ttl_file.write(OPENSTREETMAP_NAMESPACE + ':' + to_classname(taginfo['data']['value']) + ' rdfs:subClassOf ' + OPENSTREETMAP_NAMESPACE + ':' + to_classname(taginfo['key']) + ' .\n')
-		
-		if taginfo['data']['wiki']['en']['description']:
-			ttl_file.write(OPENSTREETMAP_NAMESPACE + ':' + to_classname(taginfo['data']['value']) + ' rdfs:comment "' + taginfo['data']['wiki']['en']['description'] + '" .\n')
-
-		# All Attributes from related tags
-		# Needs pruning for subclasses, currently all classes get all possible attributes
-		for attribute in raw_releated_tags_coll.aggregate([
-			{'$match':{'key':taginfo['key'],'value':taginfo['data']['value']}}, 
-			{'$unwind': {'path':'$data'}},
-			{'$group': {'_id': None,'keys':{'$addToSet': '$data.other_key'}}}, 
-			{'$project':{'_id': 0,'keys': 1}}]):
-
-			if 'keys' in attribute:
-				attribute['keys'].sort()
-				for attr in attribute['keys']:
-					if not attr in tags_used_for_classes:
-						ttl_file.write(OPENSTREETMAP_NAMESPACE + ':' + to_attributename(attr) +' a owl:DatatypeProperty ;\n')
-						ttl_file.write('    rdfs:domain ' + OPENSTREETMAP_NAMESPACE + ':' + to_classname(taginfo['data']['value']) + ' ;\n')
-
-						if attr in attribute_comments and 'description' in attribute_comments[attr] and len(attribute_comments[attr]['description']) > 0:
-							ttl_file.write('    rdfs:comment "' + attribute_comments[attr]['description'].replace('"', '') + '" ;\n')
-
-						ttl_file.write('    rdfs:range xsd:string .\n')
-		
-		# partOf relationship
-		ttl_file.write(OPENSTREETMAP_NAMESPACE + ':partOf a owl:ObjectProperty ; \n')
-		ttl_file.write('    rdfs:domain ' + OPENSTREETMAP_NAMESPACE + ':' + to_classname(taginfo['data']['value']) + ' ;\n')
-		ttl_file.write('    rdfs:range ' + OPENSTREETMAP_NAMESPACE + ':PowerThing .\n')
-
-		ttl_file.write('\n')
-
-	ttl_file.close()
-
-def create_jsonld_context():
-	print('Creating JSON-LD context for Ontology: ' + TTL_FILENAME + ' (_id: ' + OSMPOWER_URL + ')')
-
-	# Note: this requires owl2json: https://github.com/stain/owl2jsonld
-	command = '/usr/bin/java -jar ' + OWL_TO_JSON_JAR_ABSOLUTE_PATH
-	command = command + ' -o ' + os.getcwd() + '/' + OPENSTREETMAP_NAMESPACE + '.context.jsonld'
-	command = command + ' file://' + os.getcwd() + '/' + OPENSTREETMAP_NAMESPACE + '.ttl'
-	result = jarWrapper(command.split(' '))
-
-	context_doc = json.load(open(os.getcwd() + '/' + OPENSTREETMAP_NAMESPACE + '.context.jsonld', 'r'))
-	context_doc['_id'] = OSMPOWER_URL
-
-	result = context_coll.replace_one({'_id': context_doc['_id']}, context_doc, upsert=True)
-	print(result.raw_result)
 	
 def to_classname(tag):
 	return snake_to_camel(tag)
@@ -217,20 +224,6 @@ def run_command(command):
                          stdout=subprocess.PIPE)
     # in case we want to also see the errors:  ,stderr=subprocess.STDOUT
     return iter(p.stdout.readline, '')
-
-def jarWrapper(command):
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    ret = []
-    while process.poll() is None:
-        line = process.stdout.readline()
-        if line != '':
-            ret.append(line[:-1])
-    stdout, stderr = process.communicate()
-    #ret += stdout.split('\n')
-    #if stderr != '':
-    #    ret += stderr.split('\n')
-    # ret.remove('')
-    return ret
 
 if __name__ == '__main__':
 	main()

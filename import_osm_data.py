@@ -39,6 +39,7 @@ mongo_client = pymongo.MongoClient('localhost')
 raw_class_tags_coll = mongo_client.osm.raw_class_tags
 #raw_releated_tags_coll = mongo_client.osm.raw_releated_tags
 
+#raw_objects_coll = mongo_client.osm.raw_objects_germany
 raw_objects_coll = mongo_client.osm.raw_objects_germany
 raw_objects_coll.create_index([( "tags.$**", pymongo.ASCENDING)])
 

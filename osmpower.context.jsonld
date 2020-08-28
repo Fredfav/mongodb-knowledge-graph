@@ -221,6 +221,10 @@
     "Marker" : {
       "@id" : "http://christian-kurze.de/ontology/osm/power#Marker"
     },
+    "hasPart" : {
+      "@id" : "http://christian-kurze.de/ontology/osm/power#hasPart",
+      "@type" : "@id"
+    },
     "manufacturer" : {
       "@id" : "http://christian-kurze.de/ontology/osm/power#manufacturer",
       "@type" : "http://www.w3.org/2001/XMLSchema#string"
