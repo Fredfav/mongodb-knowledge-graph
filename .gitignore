@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 # project specific files
-**/osmpower.ttl
-**/osmpower.jsonld
+osmpower.ttl
+osmpower.jsonld
 **/osmpower**.ttl
 **/osmpower**.jsonld
