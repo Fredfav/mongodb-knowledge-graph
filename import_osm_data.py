@@ -39,12 +39,12 @@ mongo_client = pymongo.MongoClient('localhost')
 raw_class_tags_coll = mongo_client.osm.raw_class_tags
 #raw_releated_tags_coll = mongo_client.osm.raw_releated_tags
 
+raw_objects_coll = mongo_client.osm.raw_objects
 #raw_objects_coll = mongo_client.osm.raw_objects_germany
-raw_objects_coll = mongo_client.osm.raw_objects_germany
 raw_objects_coll.create_index([( "tags.$**", pymongo.ASCENDING)])
 
-INPUT_OSM_FILE = '/Users/christian.kurze/Documents/MongoDB/90-Demos/mongodb-hivemq-iot-demo/geo-payloads/germany-latest.osm.pbf'
-#INPUT_OSM_FILE = '/Users/christian.kurze/Downloads/bayern-latest.osm.pbf'
+#INPUT_OSM_FILE = '/Users/christian.kurze/Documents/MongoDB/90-Demos/mongodb-hivemq-iot-demo/geo-payloads/germany-latest.osm.pbf'
+INPUT_OSM_FILE = '/Users/christian.kurze/Downloads/bayern-latest.osm.pbf'
 # osm = esy.osm.pbf.File()
 # osm = esy.osm.pbf.File()
 
