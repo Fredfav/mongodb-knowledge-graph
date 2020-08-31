@@ -56,7 +56,7 @@ def main():
 		tags_used_for_classes.add(tag['key'])
 		tags_used_for_classes.add(tag['value'])
 
-	create_ttl_file(tags)
+	# create_ttl_file(tags)
 	create_instances_mongodb(tags)
 	create_part_of_relationship_ttl_and_mongodb()
 
@@ -90,7 +90,7 @@ def create_instances_mongodb(tags):
 	print('Creating instances in MongoDB')
 
 	cnt = 0
-	for asset in raw_objects_coll.find({'$or': [  {'type':'node'}]}): # {'type':'way'},
+	for asset in raw_objects_coll.find({'$or': [ {'type':'way'}, {'type':'node'} ]}):
 		osmclass = derive_class(asset)
 
 		instance = {
@@ -105,7 +105,7 @@ def create_instances_mongodb(tags):
 
 		# Geometry - if the first and last entry of nodes-array is the same --> Polygon, if not --> Line
 		if asset['type'] == 'way':
-			if asset['nodes'][0] == asset['nodes'][-1]:
+			if asset['nodes'][0] == asset['nodes'][-1] and len(asset['nodes']) > 3:
 				instance['geometry'] = {
 					'type': 'Polygon',
 					'coordinates': [ [ [round(float(x['lon']),7), round(float(x['lat']),7)] for x in asset['nodes'] ] ] 
