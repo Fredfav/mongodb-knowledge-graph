@@ -1,4 +1,4 @@
-{
+[{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -21,8 +21,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -37,8 +36,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -71,8 +69,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -85,8 +82,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -107,8 +103,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -121,8 +116,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Switch"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -135,8 +129,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Substation"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -156,8 +149,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -170,8 +162,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -186,8 +177,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -208,8 +198,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -222,8 +211,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Substation"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -253,8 +241,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -267,8 +254,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Marker"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -280,8 +266,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Station"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -305,8 +290,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -319,8 +303,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -333,8 +316,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -350,8 +332,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -367,8 +348,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -628,8 +608,7 @@
     "http://www.w3.org/2002/07/owl#inverseOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#hasPart"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -653,8 +632,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -690,8 +668,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -707,8 +684,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -721,8 +697,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -737,8 +712,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -751,8 +725,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -775,8 +748,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -792,8 +764,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -817,8 +788,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -831,8 +801,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -845,8 +814,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -888,8 +856,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -905,8 +872,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -921,8 +887,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -937,8 +902,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -967,8 +931,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -989,8 +952,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1019,8 +981,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1033,8 +994,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1049,8 +1009,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1063,8 +1022,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1080,8 +1038,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1096,8 +1053,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1110,8 +1066,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1141,8 +1096,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1155,8 +1109,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1169,8 +1122,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1186,8 +1138,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1200,8 +1151,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Bay"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1294,8 +1244,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1308,8 +1257,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1333,8 +1281,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1352,8 +1299,7 @@
             "@id": "http://christian-kurze.de/ontology/osm/power#Pole"
         }
     ]
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1374,8 +1320,7 @@
             "@id": "http://christian-kurze.de/ontology/osm/power#Transformer"
         }
     ]
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1388,8 +1333,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1402,8 +1346,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1424,8 +1367,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1438,8 +1380,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Station"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1454,8 +1395,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1524,8 +1464,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1538,8 +1477,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1552,8 +1490,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Line"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1566,8 +1503,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1588,8 +1524,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1622,8 +1557,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1639,8 +1573,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1653,8 +1586,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1674,8 +1606,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1688,8 +1619,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1719,8 +1649,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1753,8 +1682,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1778,8 +1706,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1794,8 +1721,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1808,8 +1734,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Marker"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1872,8 +1797,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1888,8 +1812,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1902,8 +1825,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1916,8 +1838,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1956,8 +1877,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1973,8 +1893,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -1986,8 +1905,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2050,8 +1968,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2064,8 +1981,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2089,8 +2005,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2103,8 +2018,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2119,8 +2033,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2133,8 +2046,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Switch"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2150,8 +2062,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2166,8 +2077,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2188,8 +2098,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2202,8 +2111,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2219,8 +2127,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2233,8 +2140,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Marker"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2249,8 +2155,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2263,8 +2168,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2277,8 +2181,7 @@
     "subClassOf": {
         "@id": "http://www.w3.org/2002/07/owl#Thing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2291,8 +2194,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2305,8 +2207,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Substation"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2332,8 +2233,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2346,8 +2246,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2360,8 +2259,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2377,8 +2275,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2399,8 +2296,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2415,8 +2311,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2676,8 +2571,7 @@
     "http://www.w3.org/2002/07/owl#inverseOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#partOf"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2698,8 +2592,7 @@
             "@id": "http://christian-kurze.de/ontology/osm/power#Transformer"
         }
     ]
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2720,8 +2613,7 @@
             "@id": "http://christian-kurze.de/ontology/osm/power#Line"
         }
     ]
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2742,8 +2634,7 @@
             "@id": "http://christian-kurze.de/ontology/osm/power#Substation"
         }
     ]
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2779,8 +2670,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2831,8 +2721,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2848,8 +2737,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2873,8 +2761,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2886,8 +2773,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2903,8 +2789,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2917,8 +2802,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2934,8 +2818,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2948,8 +2831,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2979,8 +2861,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -2996,8 +2877,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3010,8 +2890,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3024,8 +2903,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3038,8 +2916,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Marker"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3060,8 +2937,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3074,8 +2950,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Substation"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3147,8 +3022,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3166,8 +3040,7 @@
             "@id": "http://christian-kurze.de/ontology/osm/power#Line"
         }
     ]
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3180,8 +3053,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Switch"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3194,8 +3066,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3210,8 +3081,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3224,8 +3094,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3240,8 +3109,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3266,8 +3134,7 @@
             "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
         }
     ]
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3282,8 +3149,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3296,8 +3162,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Station"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3313,8 +3178,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3327,8 +3191,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Transformer"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3357,8 +3220,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3390,8 +3252,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3407,8 +3268,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3441,8 +3301,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3457,8 +3316,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3478,8 +3336,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3518,8 +3375,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3534,8 +3390,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3548,8 +3403,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3565,8 +3419,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3581,8 +3434,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3595,8 +3447,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3609,8 +3460,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Switch"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3630,8 +3480,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3657,8 +3506,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3679,8 +3527,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3696,8 +3543,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3712,8 +3558,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3726,8 +3571,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Marker"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3740,8 +3584,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3757,8 +3600,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3797,8 +3639,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3811,8 +3652,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Transformer"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3827,8 +3667,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3841,8 +3680,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Transformer"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3874,8 +3712,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3890,8 +3727,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3907,8 +3743,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3924,8 +3759,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3937,8 +3771,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3954,8 +3787,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3971,8 +3803,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -3988,8 +3819,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4010,8 +3840,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4027,8 +3856,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4041,8 +3869,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Substation"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4057,8 +3884,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4078,8 +3904,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4115,8 +3940,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4146,8 +3970,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4173,8 +3996,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4189,8 +4011,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4220,8 +4041,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4245,8 +4065,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4262,8 +4081,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4287,8 +4105,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4301,8 +4118,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Marker"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4315,8 +4131,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4329,8 +4144,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4351,8 +4165,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4365,8 +4178,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4382,8 +4194,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4399,8 +4210,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4421,8 +4231,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4438,8 +4247,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4452,8 +4260,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4507,8 +4314,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4521,8 +4327,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4535,8 +4340,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4549,8 +4353,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4563,8 +4366,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#PowerThing"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4588,8 +4390,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4602,8 +4403,7 @@
     "subClassOf": {
         "@id": "http://christian-kurze.de/ontology/osm/power#Substation"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4627,8 +4427,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4648,8 +4447,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4664,8 +4462,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4686,8 +4483,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4714,8 +4510,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4741,8 +4536,7 @@
     "range": {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
-}
-{
+},{
     "@context": {
         "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
         "domain": "http://www.w3.org/2000/01/rdf-schema#domain",
@@ -4756,3 +4550,4 @@
         "@id": "http://christian-kurze.de/ontology/osm/power#Industrial"
     }
 }
+]
